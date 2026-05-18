@@ -4,56 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming 2 Website Group Project</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class = "calendar">
-        <header>
-            <h1> 
-                May 2026
-            </h1>
-        </header>
+    <div id="cal">
+        <div id="week-view">
+            <header>
+                <h1> 
+                    May 2026
+                </h1>
+            </header>
 
-        <ul class = "weekdays">
-            <li class = "day">Sun 17</li>
-            
-            <li class = "day">Mon 18</li>
-            <li class = "day">Tue 19</li>
-            <li class = "day">Wed 20</li>
-            <li class = "day">Thu 21</li>
-            <li class = "day">Fri 22</li>
-            <li class = "day">Sat 23</li>
+            <ol class = "weekdays">
+                <li id = "sun">Sun 17</li>
+                <li id = "mon">Mon 18</li>
+                <li id = "tue">Tue 19</li>
+                <li id = "wed">Wed 20</li>
+                <li id = "thu">Thu 21</li>
+                <li id = "fri">Fri 22</li>
+                <li id = "sat">Sat 23</li>
 
-        </ul>
+            </ol>
 
-        <div class = "times">
-            <div class="time">12 AM</div>
-            <div class="time">1 AM</div>
-            <div class="time">2 AM</div>
-            <div class="time">3 AM</div>
-            <div class="time">4 AM</div>
-            <div class="time">5 AM</div>
-            <div class="time">6 AM</div>
-            <div class="time">7 AM</div>
-            <div class="time">8 AM</div>
-            <div class="time">9 AM</div>
-            <div class="time">10 AM</div>
-            <div class="time">11 AM</div>
-            <div class="time">12 PM</div>
-            <div class="time">1 PM</div>
-            <div class="time">2 PM</div>
-            <div class="time">3 PM</div>
-            <div class="time">4 PM</div>
-            <div class="time">5 PM</div>
-            <div class="time">6 PM</div>
-            <div class="time">7 PM</div>
-            <div class="time">8 PM</div>
-            <div class="time">9 PM</div>
-            <div class="time">10 PM</div>
-            <div class="time">11 PM</div>
-        </ul>
+            <ol class = "times">
+                <li class="time">12 AM</li>
+                <li class="time">1 AM</li>
+                <li class="time">2 AM</li>
+                <li class="time">3 AM</li>
+                <li class="time">4 AM</li>
+                <li class="time">5 AM</li>
+                <li class="time">6 AM</li>
+                <li class="time">7 AM</li>
+                <li class="time">8 AM</li>
+                <li class="time">9 AM</li>
+                <li class="time">10 AM</li>
+                <li class="time">11 AM</li>
+                <li class="time">12 PM</li>
+                <li class="time">1 PM</li>
+                <li class="time">2 PM</li>
+                <li class="time">3 PM</li>
+                <li class="time">4 PM</li>
+                <li class="time">5 PM</li>
+                <li class="time">6 PM</li>
+                <li class="time">7 PM</li>
+                <li class="time">8 PM</li>
+                <li class="time">9 PM</li>
+                <li class="time">10 PM</li>
+                <li class="time">11 PM</li>
+            </ol>
+        </div>
+
+        <div id="day-view">
+            <ol class="6am-6pm">
+                <li class="time">6 AM</li>
+                <li class="time">7 AM</li>
+                <li class="time">8 AM</li>
+                <li class="time">9 AM</li>
+                <li class="time">10 AM</li>
+                <li class="time">11 AM</li>
+                <li class="time">12 PM</li>
+                <li class="time">1 PM</li>
+                <li class="time">2 PM</li>
+                <li class="time">3 PM</li>
+                <li class="time">4 PM</li>
+                <li class="time">5 PM</li>
+                <li class="time">6 PM</li> 
+            </ol>
+
+            <ol class="7pm-12am">
+                <li class="time">7 PM</li>
+                <li class="time">8 PM</li>
+                <li class="time">9 PM</li>
+                <li class="time">10 PM</li>
+                <li class="time">11 PM</li>
+                <li class="time">12 PM</li>
+            </ol>
+        </div>
     </div>
-    
 </body>
 </html>
