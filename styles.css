@@ -1,6 +1,6 @@
 body {
     color: black;
-    background-color: white;
+    background-color:#e4e4c9;
     font-family: "Times New Roman", Times, Serif;
     padding: 1rem;
     max-width: 100%;
@@ -11,7 +11,7 @@ body {
     color: black;
     border:20px solid #ffffff;
     border-radius: 10px;
-    background-color: white;
+    background-color: #f1e6d8;
     font-family: "Times New Roman", Times, Serif;
     padding: 1rem;
     max-width: 100%;
