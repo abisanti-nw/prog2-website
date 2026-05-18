@@ -1,0 +1,49 @@
+body {
+    color: black;
+    background-color: white;
+    font-family: "Times New Roman", Times, Serif;
+    padding: 1rem;
+    max-width: 100%;
+
+}
+
+.calendar {
+    color: black;
+    border:20px solid #ffffff;
+    border-radius: 10px;
+    background-color: white;
+    font-family: "Times New Roman", Times, Serif;
+    padding: 1rem;
+    max-width: 100%;
+}
+
+header {
+    padding: 1rem 1.5rem;
+    border:2px solid black;
+    max-width: 100%;
+}
+
+.weekdays {
+    display: flex;
+    list-style: none;
+    max-width: 100%;
+}
+
+.day {
+    flex: 1;
+    text-align: center;
+    padding: 1rem 0;
+    border:2px solid black;
+    max-width: 100%;
+}
+
+.times {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+}
+
+.time {
+    font-family: "Times New Roman", Times, Serif;
+    font-size: 10px;
+}
