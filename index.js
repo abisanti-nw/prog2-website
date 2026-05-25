@@ -48,7 +48,9 @@ async function getStudentCourses() {
     /** @type {CourseSummary[]} */
     const ret = [];
     for (const course of result) {
-      ret.push({ id: course.id, name: course.name });
+      if (course.name != undefined){
+        ret.push({ id: course.id, name: course.name });
+      }
     }
 
     return ret;
@@ -103,15 +105,7 @@ async function getCourseAssignments(id){
  * @returns {Promise<AssignmentSummary[]>}
  */
 async function getStudentAssignments() {
-  const unfiltered_courses = await getStudentCourses();
-  const courses = [];
-  for (const course of unfiltered_courses){
-    if (course.name != undefined){
-      courses.push(course)
-    }
-  }
-  
-
+  const courses = await getStudentCourses();
 
   /** @type {AssignmentSummary[]} */
   const ret = [];
@@ -129,6 +123,5 @@ async function getStudentAssignments() {
 const port = 3000;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
-  getStudentAssignments().then(console.log);
 });
 
