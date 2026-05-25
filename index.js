@@ -7,12 +7,13 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Returns a list of all courses the student is enrolled in.
 async function getStudentCourses() {
   //get all the data from canvas
   const baseUrl = process.env.BASE_URL;
   const token = process.env.API_KEY;
 
-  const url = baseUrl + '/api/v1/courses';
+  const url = baseUrl + '/api/v1/courses?per_page=100';
 
   try {
     const responce = await fetch(url,{headers : {"Authorization" : `Bearer ${token}`}});
