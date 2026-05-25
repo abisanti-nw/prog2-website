@@ -10,6 +10,7 @@ https://nodejs.org/en/download
 
 Ensure you have a .env flie with the following structure
 > API_KEY = [Your custom Canvas API token as a string]
+>
 > BASE_URL = 'https://thenorthwestschool.instructure.com'
 
 ## To run
