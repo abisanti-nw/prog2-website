@@ -7,7 +7,28 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Returns a list of all courses the student is enrolled in.
+/**
+ * @typedef {Object} CourseSummary
+ * @property {number} id
+ * @property {string} name
+ */
+
+/**
+ * @typedef {Object} AssignmentSummary
+ * @property {number} id
+ * @property {string} name
+ * @property {string|null} description
+ * @property {string|null} due_at
+ * @property {number} course_id
+ * @property {number|null} points_possible
+ * @property {string} link
+ * @property {boolean} has_submitted_submissions
+ */
+
+/**
+ * Gets all courses student is enrolled in based on API key in .env
+ * @returns {Promise<CourseSummary[]|undefined>}
+ */
 async function getStudentCourses() {
   //get all the data from canvas
   const baseUrl = process.env.BASE_URL;
@@ -23,6 +44,8 @@ async function getStudentCourses() {
     }
 
     const result = await responce.json();
+
+    /** @type {CourseSummary[]} */
     const ret = [];
     for (const course of result) {
       ret.push({ id: course.id, name: course.name });
@@ -35,10 +58,77 @@ async function getStudentCourses() {
   
 }
 
+/**
+ * @param {number} id
+ * Gets all assignments from course based on the passed in ID and student api key in .env
+ * @returns {Promise<AssignmentSummary[]|undefined>}
+ */
+async function getCourseAssignments(id){
+  //get all the assignments from canvas
+  const baseUrl = process.env.BASE_URL;
+  const token = process.env.API_KEY;
+
+  const url = baseUrl + `/api/v1/courses/${id}/assignments?per_page=200`;
+
+  try {
+    const responce = await fetch(url,{headers : {"Authorization" : `Bearer ${token}`}});
+
+    if (!responce.ok) {
+      throw new Error(`Responce status : ${responce.status} (course ${id})`);
+    }
+
+    const result = await responce.json();
+    /** @type {AssignmentSummary[]} */
+    const ret = [];
+    for (const assignment of result) {
+      ret.push({
+        id: assignment.id,
+        name: assignment.name,
+        description: assignment.description,
+        due_at: assignment.due_at,
+        course_id: assignment.course_id,
+        points_possible: assignment.points_possible,
+        link: assignment.html_url,
+        submitted: assignment.has_submitted_submissions
+      });
+    }
+
+    return ret;
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+/**
+ * @returns {Promise<AssignmentSummary[]>}
+ */
+async function getStudentAssignments() {
+  const unfiltered_courses = await getStudentCourses();
+  const courses = [];
+  for (const course of unfiltered_courses){
+    if (course.name != undefined){
+      courses.push(course)
+    }
+  }
+  
+
+
+  /** @type {AssignmentSummary[]} */
+  const ret = [];
+  for (const course of courses) {
+    const assignments = await getCourseAssignments(course.id);
+    if (!assignments) continue;
+    for (const assignment of assignments) {
+      ret.push(assignment);
+    }
+  }
+
+  return ret;
+}
 
 const port = 3000;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
-  getStudentCourses().then(console.log);
+  getStudentAssignments().then(console.log);
 });
 
