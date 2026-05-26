@@ -1,6 +1,6 @@
 body {
     color: black;
-    background-color: white;
+    background-color:#e4e4c9;
     font-family: "Times New Roman", Times, Serif;
     padding: 1rem;
     max-width: 100%;
@@ -11,39 +11,57 @@ body {
     color: black;
     border:20px solid #ffffff;
     border-radius: 10px;
-    background-color: white;
+    background-color: #f1e6d8;
     font-family: "Times New Roman", Times, Serif;
     padding: 1rem;
     max-width: 100%;
 }
 
 header {
-    padding: 1rem 1.5rem;
-    border:2px solid black;
-    max-width: 100%;
+  text-align: center;
+  padding: 1rem 1rem 1 1rem; 
+  max-width: 100%;
 }
 
 .weekdays {
-    display: flex;
-    list-style: none;
-    max-width: 100%;
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(7, 1fr); 
+  grid-auto-flow: column;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  border:1px solid black;
 }
 
-.day {
-    flex: 1;
-    text-align: center;
-    padding: 1rem 0;
-    border:2px solid black;
-    max-width: 100%;
+.weekdays li {
+  background-color: #f2cdb2; 
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #333; 
 }
 
 .times {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  border: 1px solid black;
+  border-radius: 4px;      
+  overflow: hidden;       
 }
 
 .time {
-    font-family: "Times New Roman", Times, Serif;
-    font-size: 10px;
+  font-family: "Times New Roman", Times, Serif;
+  font-size: 15px;
+  background-color: #f1e2bb; 
+  padding: 12px;            
+  text-align: left;       
 }
+
+.time:not(:last-child) {
+  border-bottom: 1px solid black;
+}
+
