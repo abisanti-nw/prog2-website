@@ -2,12 +2,17 @@ const dotenv = require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
+const { JSDOM } = require('jsdom');
+const dom = new JSDOM("<p>WORK PLEASE<p>");
+
  
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.use(express.static(path.join(__dirname)));
+
+
 
 /**
  * @typedef {Object} CourseSummary
@@ -127,8 +132,52 @@ async function getStudentAssignments() {
   return ret;
 }
 
+async function displayCourses() {
+  try {
+    // Fetch courses from the Canvas API
+    const courses = await getStudentCourses();
+
+    // Create a div for the courses list
+    const coursesDiv = document.createElement('div');
+  
+    coursesDiv.id = 'courses-container';
+    coursesDiv.style.padding = '20px';
+    
+
+    // Create a list of courses
+    const coursesList = document.createElement('div');
+    coursesList.id = 'courses-list';
+
+    // Add each course as a list item
+    for (const course of courses) {
+    
+      const listItem = document.createElement('li');
+      listItem.textContent = course.name;  // Display course name
+      listItem.id = course.id;  // Store course ID for reference
+      
+      coursesList.appendChild(listItem);
+    }
+
+    // Append the list to the container
+    coursesDiv.appendChild(coursesList);
+
+    const cal = document.getElementById("cal");
+
+    cal.appendChild(coursesDiv);
+
+} catch (error) {
+    console.error('Error fetching courses:', error);}
+}
+
 const port = 3000;
+
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
+
+  dom.window.document.addEventListener("DOMContentLoaded", () =>{
+    displayCourses();
+  })
+  
+ 
 });
 
