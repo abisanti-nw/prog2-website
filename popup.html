@@ -1,9 +1,31 @@
-<div id = "popup-tab">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Class Blocks</title>
+</head>
+<body>
     <div class = "popup">
-        <div class= "popup-header">
-            <h1> Assign classes to blocks</h1>
-            <button class = "popup-close-btn" onclick = "closePopup()">x</button>
-        </div>
-    </div>
+        <h2> Assign Class to Blocks: </h2>
+        <label for = "classes">Class: </label>
 
-</div>
+        <form action = "assign-class-block">
+            <label for = "blocks">Block: </label>
+            <select name = "blocks" id = "blocks">
+                <optgroup label = "Blocks">
+                    <option value = "Block A">Block A</option>
+                    <option value = "Block B">Block B</option>
+                    <option value = "Block C">Block C</option>
+                    <option value = "Block D">Block D</option>
+                    <option value = "Block E">Block E</option>
+                    <option value = "Block F">Block F</option>
+                    <option value = "Block G">Block G</option>
+                    <option value = "Block H">Block H</option>
+                </optgroup>
+            </select>
+        </form>
+        <input type="submit" value="Submit">
+    </div>
+</body>
+</html>
