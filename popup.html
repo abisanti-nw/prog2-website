@@ -9,8 +9,13 @@
     <div class = "popup">
         <h2> Assign Class to Blocks: </h2>
         <form action = "input-class-name"></form>
-            <label for = "class-name"> Class: </Label>
-            <input type = "text" id = "class-name" name = "class-name"><br>
+            <label for = "classes"> Class: </Label>
+            <select name = "classes" id = "classes">
+                <optgroup label = "Classes">
+                    <option value = "null-class">Loading...</option>
+                </optgroup>
+            </select>
+            <input type="submit" value="Submit">
         </form>
 
         <form action = "assign-class-block">
