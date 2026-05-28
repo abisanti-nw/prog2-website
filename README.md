@@ -15,6 +15,8 @@ Navigate to ./prog2-website in a terminal and run
 >npm install nodemon
 >
 >npm install express
+>
+>npm install jsdom
 
 Ensure you have a .env flie with the following structure
 > API_KEY = [Your custom Canvas API token as a string]
