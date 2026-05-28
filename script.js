@@ -4,7 +4,8 @@
 async function displayCourses() {
   try {
     // Fetch courses from the Canvas API
-    const courses = await getStudentCourses();
+    const res = await fetch('/api/courses')
+    const courses = await res.json() 
     
     // Create a div for the courses list
     const coursesDiv = document.createElement('div');
@@ -18,22 +19,14 @@ async function displayCourses() {
     coursesList.id = 'courses-list';
 
     // Add each course as a list item
-    console.log(coursesList);
+    
     for (const course of courses) {
     
       const listItem = document.createElement('li');
-      console.log(course)
       listItem.textContent = course.name;  // Display course name
       listItem.id = course.id.toString();  // Store course ID for reference
-      console.log("ListItem:")
-      console.log(listItem)
-      console.log("coursesList before appending:")
-      console.log(coursesList)
       coursesList.appendChild(listItem);
-      console.log("coursesList after appending:")
-      console.log(coursesList)
     }
-    console.log(coursesDiv);
     
     // Append the list to the container
     coursesDiv.appendChild(coursesList);
@@ -41,7 +34,7 @@ async function displayCourses() {
     const cal = document.getElementById("cal");
 
     cal.appendChild(coursesDiv);
-    console.log(cal)
+
 
     
 } catch (error) {

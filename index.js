@@ -72,9 +72,9 @@ async function getStudentCourses() {
 }
 
 app.get('/api/courses', async (req, res) => {
-  const courses = await getStudentCourses();
-  res.json(courses || []);
-});
+  const courses = await getStudentCourses()
+  res.json(courses || [])
+})
 
 /**
  * @param {number} id
