@@ -1,7 +1,10 @@
+
+
 /**
  * Fetch courses from the API and they are linked to the script object in index.html
+ * @param {string} location
  */
-async function displayCourses() {
+async function displayCourses(id) {
   try {
     // Fetch courses from the Canvas API
     const res = await fetch('/api/courses')
@@ -31,9 +34,9 @@ async function displayCourses() {
     // Append the list to the container
     coursesDiv.appendChild(coursesList);
 
-    const cal = document.getElementById("cal");
+    const location = document.getElementById(id);
 
-    cal.appendChild(coursesDiv);
+    location.appendChild(coursesDiv);
 
 
     
@@ -41,6 +44,6 @@ async function displayCourses() {
     console.error('Error fetching courses:', error);}
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  displayCourses()
-})
+document.getElementById('popup-button').addEventListener('click', () => {
+  window.open('popup.html', '_blank', 'width=500, height = 500');
+});

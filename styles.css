@@ -64,34 +64,3 @@ header {
 .time:not(:last-child) {
   border-bottom: 1px solid black;
 }
-
-.popup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #52bbeb;
-    border: 2px solid #333;
-    border-radius: 10px;
-    padding: 20px;
-    z-index: 1000;
-    display: none; 
-}
-
-.flex-task-column
-{
-    display: flex;
-    flex-direction: column;
-    gap: 10px; 
-    margin-top: 20px; 
-}
-
-.task {
-    background-color: #f1e2bb;
-    border: 1px solid #333;
-    border-radius: 5px;
-    padding: 10px;
-    font-family: "Times New Roman", Times, Serif;
-}
-
-
