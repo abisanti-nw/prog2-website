@@ -9,7 +9,7 @@
 <body>
     <div class = "popup">
         <h2> Assign Class to Blocks: </h2>
-        <form id="class-form" action = "assign-class-to-blocks"></form>
+        <form id="class-form">
             <label for = "classes"> Class: </Label>
             <select name = "classes" id = "classes">
                 <optgroup id="classes-group" label = "Classes">
@@ -30,8 +30,9 @@
                     <option value = "Block H">Block H</option>
                 </optgroup>
             </select>
+            <button id="class-form-submit" type="submit">Submit</button>
         </form>
-        <input id="class-form-submit" type="submit" value="Submit">
+        
     </div>
 </body>
 <script src="popup.js" defer></script>

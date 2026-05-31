@@ -11,15 +11,16 @@ async function onRun() {
     }
 }
 
-const form = document.getElementById("class-form");
-form.addEventListener('Submit', (e) => {
-    console.log('click')
-    e.preventDefault()
+const form = document.getElementById('class-form')
+form.addEventListener('submit', (e) =>{
+    e.preventDefault();
+    const responce = new FormData(form);
+    
+    for (const answer of responce){
+        localStorage.setItem(answer[0], answer[1])
+    }
 
-    const data = new FormData(e.target);
-    const formValues = Object.fromEntries(data.entries());
-
-    console.log(formValues)
+    window.close()
 })
 
 onRun()
