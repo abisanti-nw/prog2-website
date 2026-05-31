@@ -9,17 +9,14 @@
 <body>
     <div class = "popup">
         <h2> Assign Class to Blocks: </h2>
-        <form action = "input-class-name"></form>
+        <form id="class-form">
             <label for = "classes"> Class: </Label>
             <select name = "classes" id = "classes">
-                <optgroup label = "Classes">
+                <optgroup id="classes-group" label = "Classes">
                     <option value = "null-class">Loading...</option>
                 </optgroup>
             </select>
-            <input type="submit" value="Submit">
-        </form>
-
-        <form action = "assign-class-block">
+        
             <label for = "blocks">Block: </label>
             <select name = "blocks" id = "blocks">
                 <optgroup label = "Blocks">
@@ -33,8 +30,10 @@
                     <option value = "Block H">Block H</option>
                 </optgroup>
             </select>
+            <button id="class-form-submit" type="submit">Submit</button>
         </form>
-        <input type="submit" value="Submit">
+        
     </div>
 </body>
+<script src="popup.js" defer></script>
 </html>

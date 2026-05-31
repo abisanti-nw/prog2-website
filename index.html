@@ -61,7 +61,7 @@
     <div> 
         <aside id = "aside">
             Tasks
-            <button onclick="window.open('popup.html', '_blank', 'width=500, height = 500')">
+            <button id="popup-button">
                 + Sync classes from Canvas
             </button>
         </aside>
@@ -69,7 +69,7 @@
         <div class = "flex-task-column">
             <div class = "tasks">
                 <button type = "button" class = "add-task-btn" onclick = "addTask()">Add Task </button>
-                    <div class = "collapsible-times"
+                    <div class = "collapsible-times"></div>
                         <form action = "input-start-time"></form>
                             <label for = "start-time"> Start: </Label>
                             <input type = "text" id = "start-time" name = "start-time"><br>
