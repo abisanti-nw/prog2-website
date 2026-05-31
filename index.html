@@ -6,7 +6,7 @@
     <title>Programming 2 Website Group Project</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<script src="script.js" defer></script>
+<script src="index.js" defer></script>
 
 <body>
     <div id="cal">
@@ -102,30 +102,16 @@
 
     <div> 
         <aside id = "aside">
-            Tasks
-            <button id="popup-button">
+            <button id="course-popup-button">
                 + Sync classes from Canvas
             </button>
-        </aside>
-
-        <div class = "flex-task-column">
-            <div class = "tasks">
-                <button type = "button" class = "add-task-btn" onclick = "addTask()">Add Task </button>
-                    <div class = "collapsible-times">
-                        <form action = "input-start-time">
-                            <label for = "start-time"> Start: </label>
-                            <input type = "text" id = "start-time" name = "start-time"><br>
-                        </form>
-                        <form action = "input-end-time">
-                            <label for = "end-time"> End: </label>
-                            <input type = "text" id = "end-time" name = "end-time"><br>
-                        </form>
-                    </div>
-
-            </div>
-        </div>
+            
+            <button id = "task-popup-button">
+                Add Task 
+            </button>
+        </aside> 
     </div>
-    
+        
 </body>
 
 </html>
