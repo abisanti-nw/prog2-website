@@ -14,10 +14,10 @@ async function onRun() {
 const form = document.getElementById('class-form')
 form.addEventListener('submit', (e) =>{
     e.preventDefault();
-    const responce = new FormData(form);
+    const response = new FormData(form);
     
-    for (const answer of responce){
-        localStorage.setItem(answer[0], answer[1])
+    for (const answer of response){
+        localStorage.setItem(`class_${answer[0]}`, answer[1])
     }
 
     window.close()
