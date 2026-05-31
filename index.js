@@ -45,5 +45,5 @@ async function displayCourses(id) {
 };
 
 document.getElementById('popup-button').addEventListener('click', () => {
-  window.open('popup.html', '_blank', 'width=500, height = 500');
+  window.open('class-sync-popup.html', '_blank', 'width=500, height = 500');
 });
