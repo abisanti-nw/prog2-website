@@ -1,3 +1,38 @@
+function setWeekDays(){
+  const today = new Date();
+
+  const dayOfWeek = today.getDay(); // 0 (Sunday) to 6 (Saturday)
+  const sundayDate = today.getDate() - dayOfWeek; // Calculate the distance to the most recent Sunday, because today.getDate is the day of the month, and the current date is always dayOfWeek days after the Sunday of that week
+  const startOfWeek = new Date(today.setDate(sundayDate)); // Get the date of the most recent Sunday by setting the day of the month to the date of the most recent Sunday
+
+  const weekDayMap = {
+    0: 'Sunday',
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday'
+  }
+  
+  for (let i = 0; i < 7; i++) {
+    const nextDate = new Date(startOfWeek);
+    nextDate.setDate(startOfWeek.getDate() + i);
+
+    const dayName = nextDate.toLocaleDateString('en-US', { weekday: 'long' }); // Get the day name
+    console.log(dayName)
+    const dayNumber = nextDate.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric'}); // Get the month and day number
+    const headerText = `${dayName} ${dayNumber}`; // Combine the day name and number
+  
+    const weekday = document.querySelectorAll(`.${dayName}`)
+    weekday.forEach(day => {
+      day.textContent = headerText; 
+    })
+  }
+}
+
+document.addEventListener('DOMContentLoaded', setWeekDays);
+
 function setClassFromLocalStorage() {
   //get class information
   let className = localStorage.getItem('class_classes')
@@ -20,14 +55,14 @@ function setClassFromLocalStorage() {
 
 const classPopupButton = document.getElementById('course-popup-button')
 classPopupButton.addEventListener('click', () => {
-  const classPopup = window.open('class-sync-popup.html', '_blank', 'width=500, height = 500');
+  const classPopup = window.open('class-sync-popup.html', '_blank', 'width=550, height = 500');
 
   const checkClosed = setInterval(() => {
     if (classPopup.closed) {
       clearInterval(checkClosed);
       setClassFromLocalStorage();
     }
-  })
+  }, 500)
 });
 
 
@@ -121,6 +156,4 @@ taskPopupButton.addEventListener('click', () => {
       addTaskFromLocalStorage();
     }
   }, 500);
-})
-
-
+});

@@ -1,1 +1,0 @@
-Make task button that opens a pop up, with task title, description, color-sorting, etc.
