@@ -34,7 +34,7 @@ header {
   border:1px solid black;
 }
 
-.weekdays li {
+.weekdays-li {
   background-color: #f2cdb2; 
   padding: 10px;
   text-align: center;
@@ -53,14 +53,312 @@ header {
   overflow: hidden;       
 }
 
+.cal {
+  display: grid;
+  grid-template-columns: 0.4fr repeat(7, 1fr);
+  /* 1440 min in a day, the first 60 rows are for the day headers */
+  grid-template-rows: repeat(1500, 0.02fr);
+  gap: 1fr
+
+}
+
 .time {
   font-family: "Times New Roman", Times, Serif;
   font-size: 15px;
   background-color: #f1e2bb; 
   padding: 12px;            
-  text-align: left;       
+  text-align: left;   
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black ;
+  grid-column: 1/9;
+  }
+
+
+/* #region days */
+
+.sunday{
+  grid-column: 2;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
 }
 
-.time:not(:last-child) {
+.monday{
+  grid-column: 3;
   border-bottom: 1px solid black;
+  border-top: 1px solid black;
 }
+
+.tuesday{
+  grid-column: 4;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.wednesday{
+  grid-column: 5;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.thursday{
+  grid-column: 6;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.friday{
+  grid-column: 7;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.saturday{
+  grid-column: 8;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+}
+/* #endregion */
+
+/* #region times */
+
+.twelve-am {
+  /* min 1 - 60 */
+  grid-row: 61 / 120;
+}
+
+.one-am {
+  /* min 61 - 120 */
+  grid-row: 121 / 180;
+}
+
+.two-am{
+  /* min 121-180 */
+  grid-row: 181 / 240;
+}
+
+.three-am{
+  /* min 181-240 */
+  grid-row: 241/300;
+}
+
+.four-am{
+  /* min 241- 300 */
+  grid-row: 301/360;
+}
+
+.five-am{
+  /* min 301- 360 */
+  grid-row: 361/420;
+}
+
+.six-am{
+  /* min 361 - 420 */
+  grid-row: 421/480;
+}
+
+.seven-am{
+  /* min 421 - 480 */
+  grid-row: 481 / 540;
+}
+
+.eight-am{
+  /* min 481 - 540 */
+  grid-row: 541 / 600;
+}
+
+.nine-am{
+  /* min 541 - 600 */
+  grid-row: 601 / 660;
+}
+
+.ten-am{
+  /* min 601 - 660 */
+  grid-row: 661 / 720;
+}
+
+.eleven-am{
+  /* min 661 - 720 */
+  grid-row: 721 / 780;
+}
+
+.twelve-pm{
+  /* min 721 - 780 */
+  grid-row: 781 / 840;
+}
+
+.one-pm{
+  /* min 781 - 840 */
+  grid-row: 841 / 900;
+}
+
+.two-pm{
+  /* min 841 - 900 */
+  grid-row: 901 / 960;
+}
+
+.three-pm{
+  /* min 901 - 960 */
+  grid-row: 961 / 1020;
+}
+
+.four-pm{
+  /* min 961 - 1020 */
+  grid-row: 1021 / 1080;
+}
+
+.five-pm{
+  /* min 1021 - 1080 */
+  grid-row: 1081 / 1140;
+}
+
+.six-pm{
+  /* min 1081 - 1140 */
+  grid-row: 1141 / 1200;
+}
+
+.seven-pm{
+  /* min 1141 - 1200 */
+  grid-row: 1201 / 1260;
+}
+
+.eight-pm{
+  /* min 1201 - 1260 */
+  grid-row: 1261 / 1320;
+}
+
+.nine-pm{
+  /* min 1261 - 1320 */
+  grid-row: 1321 / 1380;
+}
+
+.ten-pm{
+  /* min 1321 - 1380 */
+  grid-row: 1381 / 1440;
+}
+
+.eleven-pm{
+  /* min 1381 - 1440 */
+  grid-row: 1441 / 1500;
+}
+/* #endregion */
+
+
+.delete-button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+  width: 20px;
+  height: 20px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: #ff6666;
+  color: white;
+
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #cc4444;
+}
+
+.task {
+  background-color: #9fd3ff;
+  border: 1px solid #4a7ca8;
+  border-radius: 6px;
+
+  width: 85%;
+  justify-self: center;
+
+  box-sizing: border-box;
+  padding: 0 2px;
+
+  overflow: hidden;
+  position: relative;
+
+}
+
+.task p {
+  margin: 0;
+  padding-right: 24px; /* prevents text from going under the X button */
+  font-size: 14px;
+}
+
+.class {
+  background-color: #48769e;
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 85%;
+  justify-self: center;
+
+  box-sizing: border-box;
+  padding: 0 2px;
+
+  overflow: hidden;
+  position: relative;
+}
+/* #region class positions */
+
+.first-period{
+  grid-row: 580/655;
+}
+
+.second-period{
+  grid-row: 660/735;
+}
+
+.third-period{
+  grid-row: 740/860;
+}
+
+.last-period {
+  grid-row: 915/990;
+}
+
+.wednesday-first{
+  grid-row: 600/660;
+}
+
+.wednesday-second{
+  grid-row: 710/770;
+}
+
+.wednesday-third{
+  grid-row: 775/880;
+}
+
+.wednesday-last{
+  grid-row: 885/945;
+}
+
+.class-monday {
+  grid-column: 3;
+}
+
+.class-tuesday {
+  grid-column: 4;
+}
+
+.class-wednesday {
+  grid-column: 5;
+}
+
+.class-thursday {
+  grid-column: 6;
+}
+
+.class-friday {
+  grid-column: 7;
+}
+
+
+
+/* #endregion */

@@ -9,95 +9,77 @@
 <script src="index.js" defer></script>
 
 <body>
-    <div id="cal">
-        <div id="week-view">
-            <header>
-                <button class="prev-week">←</button>
-                <h1> 
-                    May 2026
-                </h1>
-                <button class="next-week">→</button>
-            </header>
+    <div class="cal" id="cal">
+        <!-- Calendar setup -->
+        <div class="sunday weekdays-li">Sunday</div>
+        <div class="monday weekdays-li">Monday</div>
+        <div class="tuesday weekdays-li">Tuesday</div>
+        <div class="wednesday weekdays-li">Wednesday</div>
+        <div class="thursday weekdays-li">Thursday</div>
+        <div class="friday weekdays-li">Friday</div>
+        <div class="saturday weekdays-li">Saturday</div>
+        <div class="twelve-am time">12 am</div>
+        <div class="one-am time">1 am</div>
+        <div class="two-am time">2 am</div>
+        <div class="three-am time">3 am</div>
+        <div class="four-am time">4 am</div>
+        <div class="five-am time">5 am</div>
+        <div class="six-am time">6 am</div>
+        <div class="seven-am time">7 am</div>
+        <div class="eight-am time">8 am</div>
+        <div class="nine-am time">9 am</div>
+        <div class="ten-am time">10 am</div>
+        <div class="eleven-am time">11 am</div>
+        <div class="twelve-pm time">12 pm</div>
+        <div class="one-pm time">1 pm</div>
+        <div class="two-pm time">2 pm</div>
+        <div class="three-pm time">3 pm</div>
+        <div class="four-pm time">4 pm</div>
+        <div class="five-pm time">5 pm</div>
+        <div class="six-pm time">6 pm</div>
+        <div class="seven-pm time">7 pm</div>
+        <div class="eight-pm time">8 pm</div>
+        <div class="nine-pm time">9 pm</div>
+        <div class="ten-pm time">10 pm</div>
+        <div class="eleven-pm time">11 pm</div>
 
-            <ol class = "weekdays">
-                <li id = "sun">Sun 17</li>
-                <li id = "mon">Mon 18</li>
-                <li id = "tue">Tue 19</li>
-                <li id = "wed">Wed 20</li>
-                <li id = "thu">Thu 21</li>
-                <li id = "fri">Fri 22</li>
-                <li id = "sat">Sat 23</li>
-            </ol>
+        <!-- Classes setup -->
+         <!-- Monday -->
+        <div class="first-period class-monday b-block class">Unassigned</div>
+        <div class="second-period class-monday c-block class">Unassigned</div>
+        <div class="third-period class-monday d-block class">Unassigned</div>
+        <div class="last-period class-monday a-block class">Unassigned</div>
 
-            <ol class = "times">
-                <li class="time">12 AM</li>
-                <li class="time">1 AM</li>
-                <li class="time">2 AM</li>
-                <li class="time">3 AM</li>
-                <li class="time">4 AM</li>
-                <li class="time">5 AM</li>
-                <li class="time">6 AM</li>
-                <li class="time">7 AM</li>
-                <li class="time">8 AM</li>
-                <li class="time">9 AM</li>
-                <li class="time">10 AM</li>
-                <li class="time">11 AM</li>
-                <li class="time">12 PM</li>
-                <li class="time">1 PM</li>
-                <li class="time">2 PM</li>
-                <li class="time">3 PM</li>
-                <li class="time">4 PM</li>
-                <li class="time">5 PM</li>
-                <li class="time">6 PM</li>
-                <li class="time">7 PM</li>
-                <li class="time">8 PM</li>
-                <li class="time">9 PM</li>
-                <li class="time">10 PM</li>
-                <li class="time">11 PM</li>
-            </ol>
-            <div class = "class-blocks">
-                <div class = "sunday-col"></div>
-                <div class = "monday-col">
-                    <div class = "block-A"></div>
-                    <div class = "block-B"></div>
-                    <div class = "block-C"></div>
-                    <div class = "block-D"></div>
-                </div>
-                <div class = "tuesday-col">
-                    <div class = "block-E"></div>
-                    <div class = "block-F"></div>
-                    <div class = "block-G"></div>
-                    <div class = "block-H"></div>
-                </div>
-                <div class = "wednesday-col">
-                    <div id = "week1-wed-col">
-                        <div class = "block-A"></div>
-                        <div class = "block-B"></div>
-                        <div class = "block-C"></div>
-                        <div class = "block-D"></div>
-                    </div>
-                    <div id = "week2-wed-col">
-                        <div class = "block-E"></div>
-                        <div class = "block-F"></div>
-                        <div class = "block-G"></div>
-                        <div class = "block-H"></div>
-                    </div>
-                </div>
-                <div class = "thursday-col">
-                    <div class = "block-A"></div>
-                    <div class = "block-B"></div>
-                    <div class = "block-C"></div>
-                    <div class = "block-D"></div>
-                </div>
-                <div class = "friday-col">
-                    <div class = "block-E"></div>
-                    <div class = "block-F"></div>
-                    <div class = "block-G"></div>
-                    <div class = "block-H"></div>
-                </div>
-                <div class = "saturday-col"></div>
-            </div>
-        </div>
+         <!-- Tuesday -->
+        <div class="first-period class-tuesday g-block class">Unassigned</div>
+        <div class="second-period class-tuesday f-block class">Unassigned</div>
+        <div class="third-period class-tuesday e-block class">Unassigned</div>
+        <div class="last-period class-tuesday h-block class">Unassigned</div>
+
+         <!-- Wednesday -->
+          <!-- Week 1 -->
+        <div class="wednesday-first class-wednesday b-block class">Unassigned</div>
+        <div class="wednesday-second class-wednesday c-block class">Unassigned</div>
+        <div class="wednesday-third class-wednesday a-block class">Unassigned</div>
+        <div class="wednesday-last class-wednesday d-block class">Unassigned</div>
+
+          <!-- Week 2 -->
+        <div class="wednesday-first class-wednesday g-block class">Unassigned</div>
+        <div class="wednesday-second class-wednesday f-block class">Unassigned</div>
+        <div class="wednesday-third class-wednesday e-block class">Unassigned</div>
+        <div class="wednesday-last class-wednesday h-block class">Unassigned</div>
+
+         <!-- Thursday -->
+        <div class="first-period class-thursday c-block class">Unassigned</div>
+        <div class="second-period class-thursday a-block class">Unassigned</div>
+        <div class="third-period class-thursday b-block class">Unassigned</div>
+        <div class="last-period class-thursday d-block class">Unassigned</div>
+
+         <!-- Friday -->
+        <div class="first-period class-friday e-block class">Unassigned</div>
+        <div class="second-period class-friday h-block class">Unassigned</div>
+        <div class="third-period class-friday g-block class">Unassigned</div>
+        <div class="last-period class-friday f-block class">Unassigned</div>
     </div>
 
     <div> 

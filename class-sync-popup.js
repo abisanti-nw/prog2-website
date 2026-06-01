@@ -19,7 +19,7 @@ form.addEventListener('submit', (e) =>{
     for (const answer of response){
         localStorage.setItem(`class_${answer[0]}`, answer[1])
     }
-
+    localStorage.setItem('submitted', 'true')
     window.close()
 })
 
