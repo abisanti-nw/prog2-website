@@ -1,65 +1,122 @@
-document.getElementById('course-popup-button').addEventListener('click', () => {
-  const class_popup = window.open('class-sync-popup.html', '_blank', 'width=500, height = 500');
+function setClassFromLocalStorage() {
+  //get class information
+  let className = localStorage.getItem('class_classes')
+  let classBlock = localStorage.getItem('class_blocks')
+  let submitted = localStorage.getItem('submitted')
+
+  if (submitted !== 'true'){
+    localStorage.clear()
+    return
+  }
+
+  const blocks = document.querySelectorAll(`.${classBlock}`)
+
+  blocks.forEach(block => {
+    block.textContent = className
+  })
+
+  localStorage.clear()
+} 
+
+const classPopupButton = document.getElementById('course-popup-button')
+classPopupButton.addEventListener('click', () => {
+  const classPopup = window.open('class-sync-popup.html', '_blank', 'width=500, height = 500');
+
+  const checkClosed = setInterval(() => {
+    if (classPopup.closed) {
+      clearInterval(checkClosed);
+      setClassFromLocalStorage();
+    }
+  })
 });
 
 
 function addTaskFromLocalStorage() {
-  let task_name = localStorage.getItem('task_task-name');
-  let task_description = localStorage.getItem('task_task-description');
-  let task_start_minute = localStorage.getItem('task_start-minute');
-  let task_start_hour = localStorage.getItem('task_start-hour');
-  let task_start_AM_or_PM = localStorage.getItem('task_start-AM-PM');
-  let task_end_minute = localStorage.getItem('task_end-minute');
-  let task_end_hour = localStorage.getItem('task_end-hour');
-  let task_end_AM_or_PM = localStorage.getItem('task_end-AM-PM');
-  
-  let task_start = 0
+  // Get task information from local storage
+  let taskName = localStorage.getItem('task_task-name');
+  let taskDescription = localStorage.getItem('task_task-description');
+  let taskStartMinute = localStorage.getItem('task_start-minute');
+  let taskStartHour = localStorage.getItem('task_start-hour');
+  let taskStartAMOrPM = localStorage.getItem('task_start-AM-PM');
+  let taskEndMinute = localStorage.getItem('task_end-minute');
+  let taskEndHour = localStorage.getItem('task_end-hour');
+  let taskEndAMOrPM = localStorage.getItem('task_end-AM-PM');
+  const taskDay = localStorage.getItem('task_task-day');
+  const taskSubmitted = localStorage.getItem('submitted');
 
-  if (task_start_AM_or_PM === 'PM'){
-    task_start = (Number(task_start_hour) + 12) * 60 + Number(task_start_minute);
+
+  // Ensure that the task was submitted (if the window was just closed, this function is still called)
+  if(taskSubmitted !== 'true'){
+    localStorage.clear();
+    return;
+  }
+  
+
+  //Get the task start and end times, then convert them into which grid row they need to be in
+  let taskStart = 0
+
+  if (taskStartAMOrPM === 'PM'){
+    taskStart = (Number(taskStartHour) + 12) * 60 + Number(taskStartMinute);
   }
   else{
-    task_start = Number(task_start_hour) * 60 + Number(task_start_minute);
+    taskStart = Number(taskStartHour) * 60 + Number(taskStartMinute);
   }
-  task_start = task_start + 60;
+  taskStart = taskStart + 60;
 
-  let task_end = 0
+  let taskEnd = 0;
 
-  if (task_end_AM_or_PM === 'PM'){
-    task_end = (Number(task_end_hour) + 12) * 60 + Number(task_end_minute);
+  if (taskEndAMOrPM === 'PM'){
+    taskEnd = (Number(taskEndHour) + 12) * 60 + Number(taskEndMinute);
   }
   else{
-    task_end = Number(task_end_hour) * 60 + Number(task_end_minute);
+    taskEnd = Number(taskEndHour) * 60 + Number(taskEndMinute);
   }
-  task_end = task_end + 60;
 
-  const task_length = task_end - task_start;
+  taskEnd = taskEnd + 60;
+
+  //Get how many grid rows long the task is
+
+  const taskLength = taskEnd - taskStart;
 
   
-  const task_box = document.createElement('div')
-  task_box.innerHTML = `<p>${task_name}</p>`;
-  task_box.style.gridRow = `${task_start} / span ${task_length}`
-  task_box.style.borderLeft = '1px solid black'
-  task_box.style.borderRight = '1px solid black'
-  task_box.style.borderTop = '1px solid black'
-  task_box.style.borderBottom = '1px solid black'
-  task_box.style.backgroundColor = "#ffffff"
-  task_box.style.gridColumn = '3'
+  //Create the HTML element that will represent the task, and position it
 
+  const taskBox = document.createElement('div');
+  taskBox.classList.add('task')
+  taskBox.innerHTML = `<p>${taskName}</p>`;
+  taskBox.style.gridRow = `${taskStart} / span ${taskLength}`;
+  taskBox.style.gridColumn = Number(taskDay) + 1;
+
+  //Create the task delete button
+
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'X';
+  deleteButton.classList.add('delete-button');
+
+  //Remove the task when button is clicked
+
+  deleteButton.addEventListener('click', () => {
+    taskBox.remove();
+  });
+
+  taskBox.appendChild(deleteButton)
+  
+
+
+  // Insert the task into the calendar
   const cal = document.getElementById('cal');
-  cal.appendChild(task_box);
+  cal.appendChild(taskBox);
   localStorage.clear();
 }
 
+// When the add task button is clicked, open the popup, then check if it was closed every 0.5s. When closed, runs addTaskFromLocalStorage
+const taskPopupButton = document.getElementById('task-popup-button');
+taskPopupButton.addEventListener('click', () => {
 
-const task_popup_button = document.getElementById('task-popup-button')
-
-task_popup_button.addEventListener('click', () => {
-
-  const task_popup = window.open('new-task-popup.html', '_blank', 'width=500, height=500')
+  const taskPopup = window.open('new-task-popup.html', '_blank', 'width=500, height=500');
 
   const checkClosed = setInterval(() => {
-    if (task_popup.closed) {
+    if (taskPopup.closed) {
       clearInterval(checkClosed);
       addTaskFromLocalStorage();
     }

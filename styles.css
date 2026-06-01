@@ -75,6 +75,9 @@ header {
   grid-column: 1/9;
   }
 
+
+/* #region days */
+
 .sunday{
   grid-column: 2;
   border-bottom: 1px solid black;
@@ -118,6 +121,7 @@ header {
   border-top: 1px solid black;
   border-right: 1px solid black;
 }
+/* #endregion */
 
 /* #region times */
 
@@ -240,4 +244,121 @@ header {
   /* min 1381 - 1440 */
   grid-row: 1441 / 1500;
 }
+/* #endregion */
+
+
+.delete-button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+  width: 20px;
+  height: 20px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: #ff6666;
+  color: white;
+
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #cc4444;
+}
+
+.task {
+  background-color: #9fd3ff;
+  border: 1px solid #4a7ca8;
+  border-radius: 6px;
+
+  width: 85%;
+  justify-self: center;
+
+  box-sizing: border-box;
+  padding: 0 2px;
+
+  overflow: hidden;
+  position: relative;
+
+}
+
+.task p {
+  margin: 0;
+  padding-right: 24px; /* prevents text from going under the X button */
+  font-size: 14px;
+}
+
+.class {
+  background-color: #48769e;
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 85%;
+  justify-self: center;
+
+  box-sizing: border-box;
+  padding: 0 2px;
+
+  overflow: hidden;
+  position: relative;
+}
+/* #region class positions */
+
+.first-period{
+  grid-row: 580/655;
+}
+
+.second-period{
+  grid-row: 660/735;
+}
+
+.third-period{
+  grid-row: 740/860;
+}
+
+.last-period {
+  grid-row: 915/990;
+}
+
+.wednesday-first{
+  grid-row: 600/660;
+}
+
+.wednesday-second{
+  grid-row: 710/770;
+}
+
+.wednesday-third{
+  grid-row: 775/880;
+}
+
+.wednesday-last{
+  grid-row: 885/945;
+}
+
+.class-monday {
+  grid-column: 3;
+}
+
+.class-tuesday {
+  grid-column: 4;
+}
+
+.class-wednesday {
+  grid-column: 5;
+}
+
+.class-thursday {
+  grid-column: 6;
+}
+
+.class-friday {
+  grid-column: 7;
+}
+
+
+
 /* #endregion */

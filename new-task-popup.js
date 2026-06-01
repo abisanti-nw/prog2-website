@@ -14,6 +14,7 @@ form.addEventListener('submit', (e) =>{
     for (const key in response){
         localStorage.setItem(`task_${key}`, response[key])
     }
+    localStorage.setItem('submitted', 'true')
 
     window.close()
 })
