@@ -1,0 +1,35 @@
+body {
+    color: black;
+    background-color:#e4e4c9;
+    font-family: "Times New Roman", Times, Serif;
+    padding: 1rem;
+    max-width: 100%;
+}
+
+#classes{
+  display: block;
+  background-color: #333;
+  color: white;
+  font-family: "Times New Roman", Times, Serif;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#blocks{
+  display: block;
+  background-color: #333;
+  color: white;
+  font-family: "Times New Roman", Times, Serif;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+#class-form-submit{
+  display: block;
+  background-color: #333;
+  color: white;
+  font-family: "Times New Roman", Times, Serif;
+  font-size: 18px;
+  margin-top: 10px;
+}
